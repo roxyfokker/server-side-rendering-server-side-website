@@ -1,4 +1,4 @@
-{%  render 'partials/head.liquid' %}
+{%  render 'partials/head.liquid', title: "Instrumenten overzicht" %}
 
 <table>
     <caption>Overzicht van instrumenten</caption>
@@ -16,14 +16,12 @@
     <tbody>
         {% for instrument in instruments %}
         <tr>
-            <td scope="row">{ instrument.name }</td>
-            <td>{ instrument.brand }</td>
-            <td>{ instrument.type }</td>
-            <td>{ instrument.serial_number }</td>
-            <td>{ instrument.status }</td>
+            <th scope="row">{{ instrument.name }}</th>
+            <td>{{ instrument.brand }}</td>
+            <td>{{ instrument.type }}</td>
+            <td>{{ instrument.serial_number }}</td>
+            <td>{{ instrument.status }}</td>
         </tr>
         {% endfor %}
     </tbody>
-
-    <tfoot></tfoot>
 </table>

@@ -1,69 +1,54 @@
-// Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
-// Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
 import express from 'express'
 
-// Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
-
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
-// Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
-
-// Controleer eventueel de data in je console
-// (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-// console.log(apiResponseJSON)
-
-
-// Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
-// Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
-
-// Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
-// Bestanden in deze map kunnen dus door de browser gebruikt worden
 app.use(express.static('public'))
 
-// Stel Liquid in als 'view engine'
 const engine = new Liquid();
 app.engine('liquid', engine.express()); 
 
-// Stel de map met Liquid templates in
-// Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
 
+async function haalDataVanDirectus(endpoint, params = {}) {
+  const url = 'https://fdnd-agency.directus.app/items/' + endpoint + '?' + new URLSearchParams(params);
+  const response = await fetch(url);
+  const json = await response.json();
+  return json.data;
+}
+// data ophalen uit directus en omzetten naar json 
+// endpoint                -> de collectie in directus ophalen
+// params                  -> eventuele filters sortering
+// fetch(url)              -> vraagt de data op bij directus via http
+// await response.json()   -> zet om naar json
+// return json.data        -> je krijgt een array van items die in routes gebruikt kunnen worden en naar liquid kan sturen
 
 
 
-
-
-
-
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+// Routes
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid')
-})
+  response.render('index.liquid', { title: 'Home' });
+});
 
 app.get('/instruments', async function (request, response) {
-   response.render('instruments_overview.liquid')
-})
-
-app.get('/instruments/:id', async function (request, response) {
-   response.render('instrument_detail.liquid')
-})
+  const instruments = await haalDataVanDirectus('preludefonds_instruments');
+  // TODO: je data voor filteren/sorteren doorgeven
+  response.render('instruments_overview.liquid', {instruments});
+});
 
 app.get('/instruments/new', async function (request, response) {
-   response.render('instrument_add.liquid')
-})
+  response.render('instrument_add.liquid')
+});
 
-
+app.get('/instruments/:id', async function (request, response) {
+  // TODO: data ophalen voor het specifieke instrument
+  response.render('instrument_detail.liquid')
+});
 
 
 
