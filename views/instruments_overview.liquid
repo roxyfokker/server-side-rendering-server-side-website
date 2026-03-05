@@ -16,7 +16,7 @@
     <tbody>
         {% for instrument in instruments %}
         <tr>
-            <th scope="row">{{ instrument.name }}</th>
+            <td scope="row"><a href="/instruments/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
             <td>{{ instrument.brand }}</td>
             <td>{{ instrument.type }}</td>
             <td>{{ instrument.serial_number }}</td>

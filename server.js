@@ -42,12 +42,13 @@ app.get('/instruments', async function (request, response) {
 });
 
 app.get('/instruments/new', async function (request, response) {
-  response.render('instrument_add.liquid')
+  response.render('instrument_add.liquid');
 });
 
 app.get('/instruments/:id', async function (request, response) {
   // TODO: data ophalen voor het specifieke instrument
-  response.render('instrument_detail.liquid')
+  const instrument = await haalDataVanDirectus('preludefonds_instruments/' + request.params.id);
+  response.render('instrument_detail.liquid', { instrument });
 });
 
 
