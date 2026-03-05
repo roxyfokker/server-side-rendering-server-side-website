@@ -1,0 +1,29 @@
+{%  render 'partials/head.liquid' %}
+
+<table>
+    <caption>Overzicht van instrumenten</caption>
+
+    <thead>
+        <tr>
+            <th scope="col">Naam isntrument</th>
+            <th scope="col">merk</th>
+            <th scope="col">type</th>
+            <th scope="col">serienummer</th>
+            <th scope="col">status</th> 
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for instrument in instruments %}
+        <tr>
+            <td scope="row">{ instrument.name }</td>
+            <td>{ instrument.brand }</td>
+            <td>{ instrument.type }</td>
+            <td>{ instrument.serial_number }</td>
+            <td>{ instrument.status }</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    <tfoot></tfoot>
+</table>
