@@ -77,6 +77,11 @@ a {
     --color-accent-2-strong: #d3601a;
     --color-accent-3-strong: #378e95;
     --color-accent-4-strong: #dc4054;
+
+    /* status */
+    --color-status-available: #11A407; /* In huis / beschikbaar */
+    --color-status-borrowed: #FF0000; /* Uitgeleend */
+    --color-status-repair: #FFBB00; /* In reparatie */
 }
 
 /* Thema kleuren */
@@ -150,8 +155,47 @@ p{
 
 /*icoontjes*/
 
-.zoek{
-    &::before{
-        content: "";
+.search-bar{
+    display: flex;
+    input{
+        border: 0.07rem solid var(--color-primary);
+        border-top-left-radius: 0.375rem;
+        border-bottom-left-radius: 0.375rem;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        padding: calc(.5em - 1px) calc(.75em - 1px);
     }
+
+    button{
+        background-color: var(--color-primary);
+        color: var(--color-neutral-0);
+        padding: 0.69em 1em 0.69em;
+        border: 0.07rem solid var(--color-primary);
+        border-top-right-radius: 0.375rem;
+        border-bottom-right-radius: 0.375rem;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        margin-left: -1px;
+        position: relative;
+
+        &::before{
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            background-image: url('/icons/search.svg');
+            color: var(--color-neutral-0);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            position: absolute;
+            left: 0.5em; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:hover{
+            background-color: var(--color-accent-3);
+            color: var(--color-neutral-900);
+        }
+    }
+
 }
