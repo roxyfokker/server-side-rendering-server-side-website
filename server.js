@@ -36,12 +36,44 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+
+
+
+
+
+
+
+
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
    response.render('index.liquid')
 })
+
+app.get('/instruments', async function (request, response) {
+   response.render('instruments_overview.liquid')
+})
+
+app.get('/instruments/:id', async function (request, response) {
+   response.render('instrument_detail.liquid')
+})
+
+app.get('/instruments/new', async function (request, response) {
+   response.render('instrument_add.liquid')
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
