@@ -20,6 +20,7 @@ async function haalDataVanDirectus(endpoint, params = {}) {
   return json.data;
 }
 // data ophalen uit directus en omzetten naar json 
+
 // endpoint                -> de collectie in directus ophalen
 // params                  -> eventuele filters sortering
 // fetch(url)              -> vraagt de data op bij directus via http
@@ -38,7 +39,8 @@ app.get('/', async function (request, response) {
 app.get('/instruments', async function (request, response) {
   const type = request.query.type;
   const status = request.query.status;
-  // TODO: je data voor filteren/sorteren doorgeven
+  // TODO: je data voor filteren/sorteren doorgeven en combi
+
   const instruments = await haalDataVanDirectus('preludefonds_instruments');
   
   response.render('instruments_overview.liquid', {

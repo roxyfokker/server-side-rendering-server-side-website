@@ -27,10 +27,10 @@
         {% for instrument in instruments %}
         <tr>
             <td scope="row"><a href="/instruments/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
-            <td>{{ instrument.brand }}</td>
-            <td>{{ instrument.type }}</td>
-            <td>{{ instrument.serial_number }}</td>
-            <td>{{ instrument.status }}</td>
+            <td>{{ instrument.brand | default: "Onbekend" }}</td>
+            <td>{{ instrument.type | default: "Onbekend" }}</td>
+            <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
+            <td>{{ instrument.status | default: "Onbekend" }}</td>
         </tr>
         {% endfor %}
     </tbody>
