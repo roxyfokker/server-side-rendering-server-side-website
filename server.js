@@ -36,9 +36,16 @@ app.get('/', async function (request, response) {
 });
 
 app.get('/instruments', async function (request, response) {
-  const instruments = await haalDataVanDirectus('preludefonds_instruments');
+  const type = request.query.type;
+  const status = request.query.status;
   // TODO: je data voor filteren/sorteren doorgeven
-  response.render('instruments_overview.liquid', {instruments});
+  const instruments = await haalDataVanDirectus('preludefonds_instruments');
+  
+  response.render('instruments_overview.liquid', {
+    instruments,
+    type,
+    status
+  });
 });
 
 app.get('/instruments/new', async function (request, response) {

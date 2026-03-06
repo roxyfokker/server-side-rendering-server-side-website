@@ -1,6 +1,15 @@
 {%  render 'partials/head.liquid', title: "Instrumenten overzicht" %}
+<nav>
+    <ul>
+        <li><a href="/instruments?type=gitaar">Gitaar</a></li>
+        <li><a href="/instruments?type=keyboard">Keyboard</a></li>
+        <li><a href="/instruments?type=viool">Viool</a></li>
+        <li><a href="/instruments?type=blaasinstrument">Blaasinstrument</a></li>
+        <li><a href="/instruments?type=drums">Drums</a></li>
+    </ul>
+</nav>
 
-<table>
+<table class="instrument-overview">
     <caption>Overzicht van instrumenten</caption>
 
     <thead>
@@ -25,3 +34,5 @@
         {% endfor %}
     </tbody>
 </table>
+
+{% render 'partials/foot.liquid' %}
