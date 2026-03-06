@@ -6,6 +6,17 @@
 /* ------------ Index pagina-------------------------------*/
 /* ------------ instrument_add pagina----------------------*/
 /* ------------ Instrument_overview pagina-----------------*/
+.overview-nav{
+    ul{
+       display: flex; 
+       justify-content: space-evenly;
+       li{
+        font-size: 0.4rem;
+        padding: 0 1rem;
+       }
+    }
+    
+}
 .instrument-overview {
     width: 100%;
     border-collapse: collapse;
