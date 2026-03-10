@@ -66,7 +66,6 @@ header{
         }
     }  
 }
-
 .instrument-overview {
     width: 100%;
     border-collapse: collapse;
@@ -89,5 +88,60 @@ header{
     }
 }
 
+.label{
+    padding: 0.375em;
+    padding-left: 2.4em;
+    padding-right: 0.5em;
+    border-radius: 0.375em;
+    position: relative;
+    align-items: center;
+    display: inline-flex;
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        z-index: 999;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+    }
+}
+.status-available {
+    background-color: var(--color-status-available-bg);  
+    border: 2px solid var(--color-status-available); 
+    &:before{
+        background-color: var(--color-status-available-border);
+        background-image: url('/icons/available.svg'); 
+    }     
+}
+.status-repair {
+    background-color: var(--color-status-repair-bg);
+    border: 2px solid var(--color-status-repair);  
+    &:before{
+        background-color: var(--color-status-repair-border);
+        background-image: url('/icons/repair.svg'); 
+    } 
+}
+.status-borrowed {
+    background-color: var(--color-status-borrowed-bg);   
+    border: 2px solid var(--color-status-borrowed); 
+    &:before{
+        background-color: var(--color-status-borrowed-border);
+        background-image: url('/icons/borrowed.svg');
+    } 
+}
+.status-unknown {
+    background-color: var(--color-neutral-100);   
+    border: 2px solid var(--color-neutral-900); 
+    &:before{
+        background-color: var(--color-neutral-300);
+        background-image: url('/icons/unknown.svg');
+    } 
+}
 
 /* ------------ Instrument_detail pagina-------------------*/

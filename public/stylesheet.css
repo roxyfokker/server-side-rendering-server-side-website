@@ -35,10 +35,10 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html,
@@ -47,71 +47,68 @@ body {
 
 ul,
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  color: inherit;
+    color: inherit;
 }
 
 :root {
-  /* Primary */
-  --color-primary: #46166b;
+    /* Primary */
+    --color-primary: #46166b;
 
-  /* Neutrals */
-  --color-neutral-900: #000000;
-  --color-neutral-800: #212121;
-  --color-neutral-500: #8f8f8f;
-  --color-neutral-300: #d9d9d9;
-  --color-neutral-100: #f2f2f2;
-  --color-neutral-0: #ffffff;
+    /* Neutrals */
+    --color-neutral-900: #000000;
+    --color-neutral-800: #212121;
+    --color-neutral-500: #8f8f8f;
+    --color-neutral-300: #d9d9d9;
+    --color-neutral-100: #f2f2f2;
+    --color-neutral-0: #ffffff;
 
-  /* Accent colors */
-  --color-accent-1: #d09910;
-  --color-accent-2: #f37021;
-  --color-accent-3: #71cbc2;
-  --color-accent-4: #f04e63;
+    /* 
+    Accent colors 
+    --color-accent-1: #d09910;
+    --color-accent-2: #f37021;
+    --color-accent-3: #71cbc2;
+    --color-accent-4: #f04e63;
 
-  /* Accent dark varongriants */
-  --color-accent-1-st: #b3840d;
-  --color-accent-2-strong: #d3601a;
-  --color-accent-3-strong: #378e95;
-  --color-accent-4-strong: #dc4054;
+    Accent dark varongriants 
+    --color-accent-1-st: #b3840d;
+    --color-accent-2-strong: #d3601a;
+    --color-accent-3-strong: #378e95;
+    --color-accent-4-strong: #dc4054;
+    */
 
-  /* status */
-  --color-status-available: #11a407; /* In huis / beschikbaar */
-  --color-status-borrowed: #ff0000; /* Uitgeleend */
-  --color-status-repair: #ffbb00; /* In reparatie */
+    /* status Available */
+    --color-status-available-hex: #11a407;
+    --color-status-available-rgb: 17, 164, 7; 
+
+    --color-status-available: rgb(var(--color-status-available-rgb)); 
+    --color-status-available-bg: rgba(var(--color-status-available-rgb), 0.1); 
+    --color-status-available-border: rgba(var(--color-status-available-rgb), 0.5);
+    --color-status-available-text: var(--color-status-available-hex);
+
+    /* status Repair */
+    --color-status-repair-hex: #ffbb00;
+    --color-status-repair-rgb: 255, 187, 0;
+
+    --color-status-repair: rgb(var(--color-status-repair-rgb));
+    --color-status-repair-bg: rgba(var(--color-status-repair-rgb), 0.1);
+    --color-status-repair-border: rgba(var(--color-status-repair-rgb), 0.5);
+    --color-status-repair-text: var(--color-status-repair-hex);
+
+    /* status Borrowed */
+    --color-status-borrowed-hex: #ff0000;
+    --color-status-borrowed-rgb: 255, 0, 0;
+
+    --color-status-borrowed: rgb(var(--color-status-borrowed-rgb));
+    --color-status-borrowed-bg: rgba(var(--color-status-borrowed-rgb), 0.1);
+    --color-status-borrowed-border: rgba(var(--color-status-borrowed-rgb), 0.5);
+    --color-status-borrowed-text: var(--color-status-borrowed-hex);
 }
 
 /* Thema kleuren */
-.status-beschikbaar {
-  color: var(--color-status-available);
-}
-.status-uitgeleend {
-  color: var(--color-status-borrowed);
-}
-.status-reparatie {
-  color: var(--color-status-repair);
-}
-.status-onbekend {
-  color: var(--color-neutral-900);
-}
-
-.theme-1 {
-}
-
-.theme-2 {
-}
-
-.theme-3 {
-}
-
-.theme-4 {
-}
-
-.theme-5 {
-}
 
 /*typografie*/
 
