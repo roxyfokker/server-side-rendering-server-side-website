@@ -36,14 +36,8 @@
                 <td>{{ instrument.brand | default: "Onbekend" }}</td>
                 <td>{{ instrument.type | default: "Onbekend" }}</td>
                 <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
-                <td class="
-                    {% if instrument.status == 'Beschikbaar' %}status-beschikbaar
-                    {% elsif instrument.status == 'In reparatie' %}status-reperatie
-                    {% elsif instrument.status == 'Verhuurd' or instrument.status == 'In gebruik voor school'%}status-uitgeleent
-                    {% else %} status-onbekend
-                    {% endif %}
-                    ">
-                    {{ instrument.status | default: "Onbekend" }}
+                <td>
+                     {% include 'partials/status_label.liquid', status: instrument.status %}
                 </td>
             </tr>
             {% endfor %}
