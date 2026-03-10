@@ -1,9 +1,32 @@
 {% render 'partials/head.liquid', title: title %}
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/instruments">Overzicht</a></li>
-    <li><a href="/instruments/new">Instrument toevoegen</a></li>
-  </ul>
-</nav>
+{% include 'partials/header.liquid', path: path %}
+
+<dl class="instrument-status">
+
+  <div>
+    <dt>Beschikbaar</dt>
+    <dd>
+      <span class="aantal-instrumenten"></span><!--word dynamaisch-->
+      <span class="percentage-instrumenten"></span> <!--word berekend-->
+    </dd>
+  </div>
+
+  <div>
+    <dt>In reparatie</dt>
+    <dd>
+      <span class="aantal-instrumenten"></span><!--word dynamaisch-->
+      <span class="percentage-instrumenten"></span> <!--word berekend-->
+    </dd>
+  </div>
+  
+  <div>
+    <dt>Uitgeleend</dt>
+    <dd>
+      <span class="aantal-instrumenten"></span> <!--word dynamaisch-->
+      <span class="percentage-instrumenten"></span> <!--word berekend-->
+    </dd>
+  </div>
+
+</dl>
+
 {%  render 'partials/foot.liquid' %}

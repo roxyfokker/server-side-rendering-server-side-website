@@ -19,6 +19,7 @@ async function haalDataVanDirectus(endpoint, params = {}) {
   const json = await response.json();
   return json.data;
 }
+
 // data ophalen uit directus en omzetten naar json 
 
 // endpoint                -> de collectie in directus ophalen
@@ -33,31 +34,21 @@ async function haalDataVanDirectus(endpoint, params = {}) {
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-  response.render('index.liquid', { title: 'Home' });
+  response.render('index.liquid', { title: 'Home', path: request.path });
 });
 
-app.get('/instruments', async function (request, response) {
-  const type = request.query.type;
-  const status = request.query.status;
-  // TODO: je data voor filteren/sorteren doorgeven en combi
+app.get('/instrumenten', async function (request, response) {
 
   const instruments = await haalDataVanDirectus('preludefonds_instruments');
   
-  response.render('instruments_overview.liquid', {
-    instruments,
-    type,
-    status
-  });
+  response.render('instrumenten_overzicht.liquid', {instruments, path: request.path});
+
 });
 
-app.get('/instruments/new', async function (request, response) {
-  response.render('instrument_add.liquid');
-});
-
-app.get('/instruments/:id', async function (request, response) {
+app.get('/instrumenten/:id', async function (request, response) {
   // TODO: data ophalen voor het specifieke instrument
   const instrument = await haalDataVanDirectus('preludefonds_instruments/' + request.params.id);
-  response.render('instrument_detail.liquid', { instrument });
+  response.render('instrument_detail.liquid', { instrument, path: request.path});
 });
 
 
