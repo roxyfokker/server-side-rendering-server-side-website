@@ -85,6 +85,11 @@ a {
 }
 
 /* Thema kleuren */
+.status-beschikbaar { color: var(--color-status-available); }   
+.status-uitgeleend { color: var(--color-status-borrowed); }   
+.status-reparatie { color: var(--color-status-repair); }    
+.status-onbekend { color: var(--color-neutral-900); }
+
 .theme-1 {
                
 }

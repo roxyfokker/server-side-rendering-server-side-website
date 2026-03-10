@@ -28,11 +28,19 @@
     <tbody>
         {% for instrument in instruments %}
         <tr>
-            <td scope="row"><a href="/instruments/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
+            <td scope="row"><a href="/instrumenten/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
             <td>{{ instrument.brand | default: "Onbekend" }}</td>
             <td>{{ instrument.type | default: "Onbekend" }}</td>
             <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
-            <td>{{ instrument.status | default: "Onbekend" }}</td>
+            <td class="
+                {% if instrument.status == 'Beschikbaar' %}status-beschikbaar
+                {% elsif instrument.status == 'In reparatie' %}status-reperatie
+                {% elsif instrument.status == 'Verhuurd' or instrument.status == 'In gebruik voor school'%}status-uitgeleent
+                {% else %} status-onbekend
+                {% endif %}
+                ">
+                {{ instrument.status | default: "Onbekend" }}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
