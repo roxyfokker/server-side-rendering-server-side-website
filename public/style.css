@@ -12,67 +12,69 @@ header{
         height: 7rem;
         padding: 1em;
     }
-    nav{
-        ul{
-            display: flex;
-            justify-content: space-between;
-            li{
-                font-size: 1.5rem;
-                color: var(--color-primary);
-                padding: 1em;
-                a{
-                    text-decoration: none;
-                    position: relative;
-                    &::after{
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        bottom: -0.3rem;
-                        width: 100%;
-                        height: 0.2rem;
-                        transform: scaleX(0);
-                        background-color: var(--color-primary);
-                        transform-origin: left;
-                        transition: transform 0.3s ease;
-                    }
-
-                    &:hover::after{
-                        transform: scaleX(1);
-                    }
-                }
-            }
-        }
-    }
 }
 
-
-.active{
-    color: red;
-    background-color: blue;
-}
 
 /* ------------ Index pagina-------------------------------*/
 /* ------------ instrument_add pagina----------------------*/
 /* ------------ Instrument_overview pagina-----------------*/
+.overzicht-section{
+    width: 90vw;
+    margin: 2rem auto;
+    /*https://codepen.io/bennettfeely/pen/azJWWX*/
+}
 .overview-nav{
     ul{
-       display: flex; 
-       justify-content: space-evenly;
-       li{
+        display: flex; 
         padding: 1rem;
-       }
+        justify-content: flex-start;
+        gap: 6rem;
+        margin-left: 0.6rem;
+        
+        li{
+            padding: 1rem;
+            position: relative;
+            
+            &::before{
+                content: "";
+                position: absolute;
+                background-color: var(--color-neutral-300);
+                clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); 
+                width: 160%;      
+                height: 3.3rem;
+                bottom: 0.5rem;
+                left: -30%;
+                z-index: -1;
+                margin-top: 0.5rem;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                background-color: var(--color-neutral-100);
+                box-shadow: 0 0 0 2px var(--color-neutral-100);
+                width: 150%;      
+                height: 3rem;  
+                clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); 
+                bottom: 0.5rem;
+                left: -25%;
+                z-index: -1;
+                margin-top: 0.5rem;
+            }
+            &.active::after {
+                background-color: var(--color-neutral-300);
+            }
+        }
     }  
 }
 
 .instrument-overview {
     width: 100%;
     border-collapse: collapse;
-    caption{
-        padding: 1rem;
-        font-size: 1.5rem;
-    }
+    background-color: var(--color-neutral-300);
+    margin-top: -1.5rem;
+    font-size: 0.8rem;
     thead {
-        background-color: var(--color-neutral-100);
+        color: var(--color-neutral-500);
     }
     th {
         font-weight: 600;

@@ -1,49 +1,54 @@
 {%  render 'partials/head.liquid', title: "Instrumenten overzicht" %}
 {% include 'partials/header.liquid', path: path %}
 
-<nav class="overview-nav">
-    <ul>
-        <li><a class="{% if type == nil %}active{% endif %}" href="/instrumenten">Alles</a></li>
-        <li><a class="{% if type == 'gitaar' %}active{% endif %}" href="/instrumenten?type=gitaar">Gitaar</a></li>
-        <li><a class="{% if type == 'keyboard' %}active{% endif %}" href="/instrumenten?type=keyboard">Keyboard</a></li>
-        <li><a class="{% if type == 'viool' %}active{% endif %}" href="/instrumenten?type=viool">Viool</a></li>
-        <li><a class="{% if type == 'blaasinstrument' %}active{% endif %}" href="/instrumenten?type=blaasinstrument">Blaasinstrument</a></li>
-        <li><a class="{% if type == 'drums' %}active{% endif %}" href="/instrumenten?type=drums">Drums</a></li>
-    </ul>
-</nav>
+<section class="overzicht-section">
+    <h1>Overzicht instrumenten</h1>
+    <nav class="overview-nav">
+        <ul>
+            {% assign current_url = request.url %}
+            {% assign active_type = current_url | split: 'type=' | last %}
 
-<table class="instrument-overview">
-    <caption>Overzicht van instrumenten</caption>
+            <li class="active"><a  href="/instrumenten">Alles</a></li>
+            <li ><a class="" href="/instrumenten?type=gitaar">Gitaar</a></li>
+            <li ><a class="" href="/instrumenten?type=keyboard">Keyboard</a></li>
+            <li ><a class="" href="/instrumenten?type=viool">Viool</a></li>
+            <li ><a class="" href="/instrumenten?type=drums">Drums</a></li>
+            <li ><a class="" href="/instrumenten?type=overige">Overige</a></li>
+        </ul>
+    </nav>
 
-    <thead>
-        <tr>
-            <th scope="col">Naam isntrument</th>
-            <th scope="col">merk</th>
-            <th scope="col">type</th>
-            <th scope="col">serienummer</th>
-            <th scope="col">status</th> 
-        </tr>
-    </thead>
 
-    <tbody>
-        {% for instrument in instruments %}
-        <tr>
-            <td scope="row"><a href="/instrumenten/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
-            <td>{{ instrument.brand | default: "Onbekend" }}</td>
-            <td>{{ instrument.type | default: "Onbekend" }}</td>
-            <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
-            <td class="
-                {% if instrument.status == 'Beschikbaar' %}status-beschikbaar
-                {% elsif instrument.status == 'In reparatie' %}status-reperatie
-                {% elsif instrument.status == 'Verhuurd' or instrument.status == 'In gebruik voor school'%}status-uitgeleent
-                {% else %} status-onbekend
-                {% endif %}
-                ">
-                {{ instrument.status | default: "Onbekend" }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    <table class="instrument-overview">
+        <thead>
+            <tr>
+                <th scope="col">Naam isntrument</th>
+                <th scope="col">merk</th>
+                <th scope="col">type</th>
+                <th scope="col">serienummer</th>
+                <th scope="col">status</th> 
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for instrument in instruments %}
+            <tr>
+                <td scope="row"><a href="/instrumenten/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
+                <td>{{ instrument.brand | default: "Onbekend" }}</td>
+                <td>{{ instrument.type | default: "Onbekend" }}</td>
+                <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
+                <td class="
+                    {% if instrument.status == 'Beschikbaar' %}status-beschikbaar
+                    {% elsif instrument.status == 'In reparatie' %}status-reperatie
+                    {% elsif instrument.status == 'Verhuurd' or instrument.status == 'In gebruik voor school'%}status-uitgeleent
+                    {% else %} status-onbekend
+                    {% endif %}
+                    ">
+                    {{ instrument.status | default: "Onbekend" }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 
 {% render 'partials/foot.liquid' %}
