@@ -16,15 +16,80 @@ header{
 
 
 /* ------------ Index pagina-------------------------------*/
+.status-overview{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    .status-box{
+        padding: 1rem;
+        border-radius: 0.375em;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        dt{
+            position: relative;
+            padding-left: 2em;
+            white-space: nowrap;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 60%;
+            }
+        }
+        &.status-available {
+            background-color: var(--color-status-available-bg);
+            border: 2px solid var(--color-status-available);
+
+            dt::before {
+                background-color: var(--color-status-available-border);
+                background-image: url('/icons/available.svg');
+            }
+        }
+
+        &.status-repair {
+            background-color: var(--color-status-repair-bg);
+            border: 2px solid var(--color-status-repair);
+
+            dt::before {
+                background-color: var(--color-status-repair-border);
+                background-image: url('/icons/repair.svg');
+            }
+        }
+
+        &.status-borrowed {
+            background-color: var(--color-status-borrowed-bg);
+            border: 2px solid var(--color-status-borrowed);
+
+            dt::before {
+                background-color: var(--color-status-borrowed-border);
+                background-image: url('/icons/borrowed.svg');
+            }
+        }
+
+        &.status-unknown {
+            background-color: var(--color-neutral-100);
+            border: 2px solid var(--color-neutral-900);
+
+            dt::before {
+                background-color: var(--color-neutral-300);
+                background-image: url('/icons/unknown.svg');
+            }
+        }
+    }
+}
 
 /* ------------ instrument_add pagina----------------------*/
 /* ------------ Instrument_overview pagina-----------------*/
-.status-overview{
-    display: flex;
-    .status-box{
-
-    }
-}
 
 .label{
     padding: 0.375em;
