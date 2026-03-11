@@ -55,65 +55,65 @@ a {
 }
 
 :root {
-    /* Primary */
-    --color-primary-hex: #46166b;
-    --color-primary-rgb: 70, 22, 107;
+  /* Primary */
+  --color-primary-hex: #46166b;
+  --color-primary-rgb: 70, 22, 107;
 
-    --color-primary: rgb(var(--color-primary-rgb));
-    --color-primary-bg: rgba(var(--color-primary-rgb), 0.1);
-    --color-primary-border: rgba(var(--color-primary-rgb), 0.5);
-    --color-primary-text: var(--color-primary-hex);
+  --color-primary: rgb(var(--color-primary-rgb));
+  --color-primary-bg: rgba(var(--color-primary-rgb), 0.1);
+  --color-primary-border: rgba(var(--color-primary-rgb), 0.5);
+  --color-primary-text: var(--color-primary-hex);
 
-    /* Neutrals */
-    --color-neutral-900: #000000;
-    --color-neutral-800: #212121;
-    --color-neutral-500: #8f8f8f;
-    --color-neutral-300: #d9d9d9;
-    --color-neutral-100: #f2f2f2;
-    --color-neutral-0: #ffffff;
+  /* Neutrals */
+  --color-neutral-900: #000000;
+  --color-neutral-800: #212121;
+  --color-neutral-500: #8f8f8f;
+  --color-neutral-300: #d9d9d9;
+  --color-neutral-100: #f2f2f2;
+  --color-neutral-0: #ffffff;
 
-    /* status Kleuren */
-    /* status Available */
-    --color-status-available-hex: #11a407;
-    --color-status-available-rgb: 17, 164, 7; 
+  /* status Kleuren */
+  /* status Available */
+  --color-status-available-hex: #11a407;
+  --color-status-available-rgb: 17, 164, 7; 
 
-    --color-status-available: rgb(var(--color-status-available-rgb)); 
-    --color-status-available-bg: rgba(var(--color-status-available-rgb), 0.1); 
-    --color-status-available-border: rgba(var(--color-status-available-rgb), 0.5);
-    --color-status-available-text: var(--color-status-available-hex);
+  --color-status-available: rgb(var(--color-status-available-rgb)); 
+  --color-status-available-bg: rgba(var(--color-status-available-rgb), 0.1); 
+  --color-status-available-border: rgba(var(--color-status-available-rgb), 0.5);
+  --color-status-available-text: var(--color-status-available-hex);
 
-    /* status Repair */
-    --color-status-repair-hex: #ffbb00;
-    --color-status-repair-rgb: 255, 187, 0;
+  /* status Repair */
+  --color-status-repair-hex: #ffbb00;
+  --color-status-repair-rgb: 255, 187, 0;
 
-    --color-status-repair: rgb(var(--color-status-repair-rgb));
-    --color-status-repair-bg: rgba(var(--color-status-repair-rgb), 0.1);
-    --color-status-repair-border: rgba(var(--color-status-repair-rgb), 0.5);
-    --color-status-repair-text: var(--color-status-repair-hex);
+  --color-status-repair: rgb(var(--color-status-repair-rgb));
+  --color-status-repair-bg: rgba(var(--color-status-repair-rgb), 0.1);
+  --color-status-repair-border: rgba(var(--color-status-repair-rgb), 0.5);
+  --color-status-repair-text: var(--color-status-repair-hex);
 
-    /* status Borrowed */
-    --color-status-borrowed-hex: #ff0000;
-    --color-status-borrowed-rgb: 255, 0, 0;
+  /* status Borrowed */
+  --color-status-borrowed-hex: #ff0000;
+  --color-status-borrowed-rgb: 255, 0, 0;
 
-    --color-status-borrowed: rgb(var(--color-status-borrowed-rgb));
-    --color-status-borrowed-bg: rgba(var(--color-status-borrowed-rgb), 0.1);
-    --color-status-borrowed-border: rgba(var(--color-status-borrowed-rgb), 0.5);
-    --color-status-borrowed-text: var(--color-status-borrowed-hex);
+  --color-status-borrowed: rgb(var(--color-status-borrowed-rgb));
+  --color-status-borrowed-bg: rgba(var(--color-status-borrowed-rgb), 0.1);
+  --color-status-borrowed-border: rgba(var(--color-status-borrowed-rgb), 0.5);
+  --color-status-borrowed-text: var(--color-status-borrowed-hex);
 
-    /* typografie */
-    /* Font families */
-    --font-sans: "Akkurat", sans-serif;
-    --font-serif: "Feijoa", serif;
+  /* typografie */
+  /* Font families */
+  --font-sans: "Akkurat", sans-serif;
+  --font-serif: "Feijoa", serif;
 
 
 
-    /* Basis z-index niveaus */
-    --z-index-background: 0;
-    --z-index-default: 10;
-    --z-index-dropdown: 100;
-    --z-index-modal: 1000;
+  /* Basis z-index niveaus */
+  --z-index-background: 0;
+  --z-index-default: 10;
+  --z-index-dropdown: 100;
+  --z-index-modal: 1000;
 
-    /* Body */
+  /* Body */
   --font-body-size: 1em;
   --font-body-weight: 400;
   --font-body-line-height: 1.5;

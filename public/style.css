@@ -91,6 +91,105 @@ header{
 /* ------------ instrument_add pagina----------------------*/
 /* ------------ Instrument_overview pagina-----------------*/
 
+
+.instrument-table{
+    border-radius: 0.375em;
+    border: 2px solid var(--color-primary); 
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 0 3px 6px var(--color-primary-border);
+    margin: auto;
+    width: 80%;
+    overflow: hidden;
+    margin-top: 3rem;
+    th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        vertical-align: bottom;
+        border-bottom: 1px solid var(--color-primary-border);
+    }
+
+    thead tr {
+        background-color: var(--color-primary);
+
+        th {
+            color: var(--color-neutral-0);
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--color-neutral-0);
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+                padding: 0;
+                font: inherit;
+                text-align: left;
+
+                svg {
+                    width: 1em;
+                    height: 1em;
+                    stroke: var(--color-neutral-0);
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+
+    tbody tr {
+        &:nth-child(odd) {
+            background-color: var(--color-neutral-0);
+        }
+
+        &:nth-child(even) {
+            background-color: var(--color-primary-bg);
+        }
+    }
+}
+
+/* table responsive */
+.instrument-table {
+    th:nth-child(3),
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(7),
+    th:nth-child(8),
+    td:nth-child(3),
+    td:nth-child(4),
+    td:nth-child(5),
+    td:nth-child(7),
+    td:nth-child(8){
+        display: none;
+    }
+
+    @media (min-width: 560px) {
+        th:nth-child(3),
+        td:nth-child(3) {
+            display: table-cell;
+        }
+    }
+
+    @media (min-width: 640px) {
+        th:nth-child(4),
+        td:nth-child(4) {
+            display: table-cell;
+        }
+    }
+
+    @media (min-width: 760px) {
+        th:nth-child(5),
+        td:nth-child(5) {
+            display: table-cell;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        th:nth-child(7),
+        td:nth-child(7) {
+            display: table-cell;
+        }
+    }
+}
 .label{
     padding: 0.375em;
     padding-left: 2.4em;

@@ -2,53 +2,76 @@
 {% include 'partials/header.liquid', path: path %}
 
 <section class="overzicht-section">
-    <h1>Overzicht instrumenten</h1>
-    <nav class="overview-nav">
-        <ul>
-            {% assign current_url = request.url %}
-            {% assign active_type = current_url | split: 'type=' | last %}
-
-            <li ><a  href="/instrumenten">Alles</a></li>
-            <li class="active"><a class="" href="/instrumenten?type=gitaar">Gitaar</a></li>
-            <li ><a class="" href="/instrumenten?type=keyboard">Keyboard</a></li>
-            <li ><a class="" href="/instrumenten?type=viool">Viool</a></li>
-            <li ><a class="" href="/instrumenten?type=drums">Drums</a></li>
-            <li ><a class="" href="/instrumenten?type=overige">Overige</a></li>
-        </ul>
-    </nav>
-
-
-    <table class="instrument-overview">
-        <thead>
-            <tr>
-                <th scope="col">Naam isntrument</th>
-                <th scope="col">serienummer</th>
-                <th scope="col">type</th>
-                <th scope="col">merk</th>
-                <th scope="col">Eigendom van</th>
-                <th scope="col">status</th> 
-                <th scope="col">datum</th> 
-                <th scope="col">link</th> 
-            </tr>
-        </thead>
-
-        <tbody>
-            {% for instrument in instruments %}
-            <tr>
-                <td scope="row">{{ instrument.name }}</td>
-                <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
-                <td>{{ instrument.type | default: "Onbekend" }}</td>
-                <td>{{ instrument.brand | default: "Onbekend" }}</td>
-                <td>{{ isntrument.property | default: "Onbekend" }}</td>
-                <td>
-                     {% include 'partials/status_label.liquid', status: instrument.status %}
-                </td>
-                <td>tot:{{ instrument.rented_until }}</td>
-                <td><a href="/instrumenten/{{ instrument.id }}">detail</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+   
 </section>
+
+<table class="instrument-table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <button>
+                    Naam isntrument
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Arrows-Sort--Streamline-Tabler" height="24" width="24">
+                        <path d="m3 9 4 -4 4 4M7 5v14" stroke-width="2"></path>
+                        <path d="m21 15 -4 4 -4 -4m4 4V5" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </th>
+            <th scope="col">
+                <button>
+                    Serienummer
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Arrows-Sort--Streamline-Tabler" height="24" width="24">
+                        <path d="m3 9 4 -4 4 4M7 5v14" stroke-width="2"></path>
+                        <path d="m21 15 -4 4 -4 -4m4 4V5" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </th>
+            <th scope="col">Type</th>
+            <th scope="col">Merk</th>
+            <th scope="col">Eigendom van</th>
+            <th scope="col">
+                <button>
+                    Status
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Arrows-Sort--Streamline-Tabler" height="24" width="24">
+                        <path d="m3 9 4 -4 4 4M7 5v14" stroke-width="2"></path>
+                        <path d="m21 15 -4 4 -4 -4m4 4V5" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </th> 
+            <th scope="col">
+                <button>
+                    Datum
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Arrows-Sort--Streamline-Tabler" height="24" width="24">
+                        <path d="m3 9 4 -4 4 4M7 5v14" stroke-width="2"></path>
+                        <path d="m21 15 -4 4 -4 -4m4 4V5" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </th> 
+            <th scope="col">Link</th> 
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for instrument in instruments %}
+        <tr>
+            <td scope="row">{{ instrument.name }}</td>
+            <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
+            <td>{{ instrument.type | default: "Onbekend" }}</td>
+            <td>{{ instrument.brand | default: "Onbekend" }}</td>
+            <td>{{ isntrument.property | default: "Onbekend" }}</td>
+            <td>
+                {% include 'partials/status_label.liquid', status: instrument.status %}
+            </td>
+            <td> 
+                {% if instrument.status == "Uitgeleend" or instrument.status == "In reparatie" %} 
+                    tot:{{ instrument.rented_until }}
+                {% endif %}
+            </td>
+            <td><a class="table-link" href="/instrumenten/{{ instrument.id }}">detail</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 {% render 'partials/foot.liquid' %}
