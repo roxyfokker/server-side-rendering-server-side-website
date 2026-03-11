@@ -22,23 +22,29 @@
         <thead>
             <tr>
                 <th scope="col">Naam isntrument</th>
-                <th scope="col">merk</th>
-                <th scope="col">type</th>
                 <th scope="col">serienummer</th>
+                <th scope="col">type</th>
+                <th scope="col">merk</th>
+                <th scope="col">Eigendom van</th>
                 <th scope="col">status</th> 
+                <th scope="col">datum</th> 
+                <th scope="col">link</th> 
             </tr>
         </thead>
 
         <tbody>
             {% for instrument in instruments %}
             <tr>
-                <td scope="row"><a href="/instrumenten/{{ instrument.id }}">{{ instrument.name }}</a></td><!--tijdelijk ik wil css overlay maken-->
-                <td>{{ instrument.brand | default: "Onbekend" }}</td>
-                <td>{{ instrument.type | default: "Onbekend" }}</td>
+                <td scope="row">{{ instrument.name }}</td>
                 <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
+                <td>{{ instrument.type | default: "Onbekend" }}</td>
+                <td>{{ instrument.brand | default: "Onbekend" }}</td>
+                <td>{{ isntrument.property | default: "Onbekend" }}</td>
                 <td>
                      {% include 'partials/status_label.liquid', status: instrument.status %}
                 </td>
+                <td>tot:{{ instrument.rented_until }}</td>
+                <td><a href="/instrumenten/{{ instrument.id }}">detail</a></td>
             </tr>
             {% endfor %}
         </tbody>
