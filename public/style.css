@@ -68,7 +68,6 @@ header{
     border-top-left-radius: 0;
     margin-left: -1px;
     position: relative;
-    
 
     &::before {
       content: "";
@@ -83,10 +82,12 @@ header{
       left: 1em;
       top: 50%;
       transform: translateY(-50%);
+      filter: brightness(0) invert(1);
     }
     &:hover {
       background-color: var(--color-accent-3);
       color: var(--color-neutral-900);
+      filter: brightness(0) invert(0);
     }
   }
 }
@@ -168,6 +169,9 @@ header{
 .instrument-overview-main{
     width: 90vw;
     margin: auto;
+    h2{
+        color: var(--color-primary);
+    }
 }
 .instrument-nav-panel{
     display: flex;
@@ -284,6 +288,7 @@ header{
         }
     }
 }
+/*responsivenes*/
 .instrument-table {
     th:nth-child(3),
     th:nth-child(4),
@@ -298,21 +303,21 @@ header{
         display: none;
     }
 
-    @media (min-width: 560px) {
+    @media (min-width: 700px) {
         th:nth-child(3),
         td:nth-child(3) {
             display: table-cell;
         }
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 800px) {
         th:nth-child(4),
         td:nth-child(4) {
             display: table-cell;
         }
     }
 
-    @media (min-width: 760px) {
+    @media (min-width: 900px) {
         th:nth-child(5),
         td:nth-child(5) {
             display: table-cell;

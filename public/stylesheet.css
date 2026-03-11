@@ -126,7 +126,7 @@ a {
 
   --font-h2-size: clamp(1.5rem, 0.686440678rem + 1.6949152542vw, 2rem);
   --font-h2-line-height: 1.2;
-  --font-h2-margin: 0 0 0.625rem;
+  --font-h2-margin: 2rem 0 0.625rem;
 
   --font-h3-size: clamp(1.5rem, 0.686440678rem + 1.6949152542vw, 2rem);
   --font-h3-line-height: 1.5;
@@ -203,6 +203,7 @@ button{
   display: inline-flex;
   gap: 0.3em;
   font-size: 1rem;
+  transition: 0.2s ease-out;
   &::before {
     content: "";
     width: 1em;
@@ -216,29 +217,51 @@ button{
   background-color: var(--color-primary);
   border: 2px solid var(--color-primary);
   color: var(--color-neutral-0);
+  &:hover{
+    background-color: var(--color-neutral-0);
+    color: var(--color-primary);
+  }
 }
 .button-secondary{
   background-color: var(--color-neutral-0);
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
+  &:hover{
+    background-color: var(--color-primary);
+    color: var(--color-neutral-0);
+  }
 }
 .button--filter{
   &::before{
     background-image: url(/icons/filter.svg);
   }
+  &:hover::before{
+    filter: brightness(0) invert(1);
+  }
 }
 .button--new{
   &::before{
     background-image: url(/icons/plus.svg);
+    filter: brightness(0) invert(1);
+  }
+  &:hover::before{
+    filter: brightness(0) invert(0);
   }
 }
 .button--list{
   &::before{
     background-image: url(/icons/list.svg);
+    filter: brightness(0) invert(1);
+  }
+  &:hover::before{
+    filter: brightness(0) invert(0);
   }
 }
 .button--grid{
   &::before{
     background-image: url(/icons/grid.svg);
+  }
+  &:hover::before{
+    filter: brightness(0) invert(1);
   }
 }
