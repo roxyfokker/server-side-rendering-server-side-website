@@ -16,75 +16,13 @@ header{
 
 
 /* ------------ Index pagina-------------------------------*/
+
 /* ------------ instrument_add pagina----------------------*/
 /* ------------ Instrument_overview pagina-----------------*/
-.overzicht-section{
-    width: 90vw;
-    margin: 2rem auto;
-    /*https://codepen.io/bennettfeely/pen/azJWWX*/
-}
-.overview-nav{
-    ul{
-        display: flex; 
-        padding: 1rem;
-        justify-content: flex-start;
-        gap: 6rem;
-        margin-left: 0.6rem;
-        
-        li{
-            padding: 1rem;
-            position: relative;
-            
-            &::before{
-                content: "";
-                position: absolute;
-                background-color: var(--color-neutral-300);
-                clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); 
-                width: 160%;      
-                height: 3.3rem;
-                bottom: 0.5rem;
-                left: -30%;
-                z-index: -1;
-                margin-top: 0.5rem;
-            }
-            &::after{
-                content: "";
-                position: absolute;
-                background-color: var(--color-neutral-100);
-                box-shadow: 0 0 0 2px var(--color-neutral-100);
-                width: 150%;      
-                height: 3rem;  
-                clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); 
-                bottom: 0.5rem;
-                left: -25%;
-                z-index: -1;
-                margin-top: 0.5rem;
-            }
-            &.active::after {
-                background-color: var(--color-neutral-300);
-            }
-        }
-    }  
-}
-.instrument-overview {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--color-neutral-300);
-    margin-top: -1.5rem;
-    font-size: 0.8rem;
-    thead {
-        color: var(--color-neutral-500);
-    }
-    th {
-        font-weight: 600;
-    }
-    th, td {
-        padding: 0.75rem;
-        text-align: left;
-        border-bottom: 1px solid var(--color-neutral-300);
-    }
-    tbody tr:hover {
-        background-color: var(--color-primary);
+.status-overview{
+    display: flex;
+    .status-box{
+
     }
 }
 

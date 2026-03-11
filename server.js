@@ -32,9 +32,8 @@ async function haalDataVanDirectus(endpoint, params = {}) {
 
 // Routes
 app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-  response.render('index.liquid', { title: 'Home', path: request.path });
+   const instruments = await haalDataVanDirectus('preludefonds_instruments');
+  response.render('index.liquid', {instruments, title: 'Home', path: request.path });
 });
 
 app.get('/instrumenten', async function (request, response) {
@@ -46,7 +45,6 @@ app.get('/instrumenten', async function (request, response) {
 });
 
 app.get('/instrumenten/:key', async function (request, response) {
-  // TODO: data ophalen voor het specifieke instrument
   const instrument = await haalDataVanDirectus('preludefonds_instruments/' + request.params.key);
   response.render('instrument_detail.liquid', { instrument, path: request.path});
 });

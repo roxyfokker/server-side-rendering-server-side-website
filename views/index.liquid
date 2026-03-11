@@ -1,37 +1,47 @@
 {% render 'partials/head.liquid', title: title %}
 {% include 'partials/header.liquid', path: path %}
 
-<dl class="instrument-status">
+<dl class="status-overview">
 
-  <div>
-    <dt class="label status-available">Beschikbaar</dt>
+  <div class="status-box status-available">
+    <dt>Beschikbaar</dt>
     <dd>
-      <span class="aantal-instrumenten"></span><!--word dynamaisch-->
-      <span class="percentage-instrumenten"></span> <!--word berekend-->
-    </dd>
+      {% assign available_count = 0 %}
+      {% for instrument in instruments %}
+        {% assign status = instrument.status | downcase %}
+        {% if status == "beschikbaar" %}
+          {% assign available_count = available_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {{ available_count }}
+      </dd>
   </div>
 
-  <div>
-    <dt class="label status-repair">In reparatie</dt>
+  <div class="status-box status-repair">
+    <dt>In reparatie</dt>
     <dd>
-      <span class="aantal-instrumenten"></span><!--word dynamaisch-->
-      <span class="percentage-instrumenten"></span> <!--word berekend-->
+      {% assign repair_count = 0 %}
+        {% for instrument in instruments %}
+          {% assign status = instrument.status | downcase %}
+          {% if status == "in reparatie" %}
+            {% assign repair_count = repair_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {{ repair_count }}
     </dd>
   </div>
   
-  <div>
-    <dt class="label status-borrowed">Uitgeleend</dt>
+  <div class="status-box status-borrowed">
+    <dt>Uitgeleend</dt>
     <dd>
-      <span class="aantal-instrumenten"></span> <!--word dynamaisch-->
-      <span class="percentage-instrumenten"></span> <!--word berekend-->
-    </dd>
-  </div>
-
-  <div>
-    <dt class="label status-unknown">Uitgeleend</dt>
-    <dd>
-      <span class="aantal-instrumenten"></span> <!--word dynamaisch-->
-      <span class="percentage-instrumenten"></span> <!--word berekend-->
+      {% assign repair_borrowed = 0 %}
+        {% for instrument in instruments %}
+          {% assign status = instrument.status | downcase %}
+          {% if status == "verhuurd" or status == "in gebruik voor school" %}
+            {% assign repair_borrowed = repair_borrowed | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {{ repair_borrowed }}
     </dd>
   </div>
 
