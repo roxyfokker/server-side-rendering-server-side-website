@@ -45,9 +45,9 @@ app.get('/instrumenten', async function (request, response) {
 
 });
 
-app.get('/instrumenten/:id', async function (request, response) {
+app.get('/instrumenten/:key', async function (request, response) {
   // TODO: data ophalen voor het specifieke instrument
-  const instrument = await haalDataVanDirectus('preludefonds_instruments/' + request.params.id);
+  const instrument = await haalDataVanDirectus('preludefonds_instruments/' + request.params.key);
   response.render('instrument_detail.liquid', { instrument, path: request.path});
 });
 

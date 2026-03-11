@@ -56,7 +56,13 @@ a {
 
 :root {
     /* Primary */
-    --color-primary: #46166b;
+    --color-primary-hex: #46166b;
+    --color-primary-rgb: 70, 22, 107;
+
+    --color-primary: rgb(var(--color-primary-rgb));
+    --color-primary-bg: rgba(var(--color-primary-rgb), 0.1);
+    --color-primary-border: rgba(var(--color-primary-rgb), 0.5);
+    --color-primary-text: var(--color-primary-hex);
 
     /* Neutrals */
     --color-neutral-900: #000000;
