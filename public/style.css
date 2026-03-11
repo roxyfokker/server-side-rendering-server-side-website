@@ -174,10 +174,12 @@ header{
     margin: auto;
 }
 
+.instrument-
+
 .instrument-table-section{
     .instrumenten-nav{
         padding-top: 5em;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
         ul{
             display: flex;
             position: relative;
@@ -228,7 +230,6 @@ header{
     margin: auto;
     width: 100%;
     overflow: hidden;
-    margin-top: 3rem;
     th, td {
         padding: 0.75rem 1rem;
         text-align: left;
