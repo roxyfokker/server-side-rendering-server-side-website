@@ -2,7 +2,17 @@
 {% include 'partials/header.liquid', path: path %}
 
 <main class="instrument-overview-main">
-    <section class="instrument-">
+    <section class="instrument-nav-panel">
+        {% include 'partials/search_bar.liquid' %}
+        <div>
+            <button class="button-primary">New instrument toevoegen</button>
+            <button class="">Filters</button>
+        </div> 
+        
+        <fieldset class="view-toggle">
+            <button class="button-primary">List</button>
+            <button class="">Grid</button>
+        </fieldset>
         
     </section>
 
