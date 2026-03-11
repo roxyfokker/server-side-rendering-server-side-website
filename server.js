@@ -40,7 +40,7 @@ app.get('/instrumenten', async function (request, response) {
 
   const instruments = await haalDataVanDirectus('preludefonds_instruments');
   
-  response.render('instrumenten_overzicht.liquid', {instruments, path: request.path});
+  response.render('instrumenten_overzicht.liquid', {instruments, path: request.path, type: request.query.type || null});
 
 });
 

@@ -8,15 +8,16 @@
 
     <section class="instrument-table-section">
         <nav class="instrumenten-nav">
+        {% comment %} dit werkt kwa styling maar type moet nog gemaakt worden dus filteren werkt nog niet {% endcomment %}
             <ul>
-                <li class="active"><a  href="/instrumenten">Alle</a></li>
-                <li><a href="/instrumenten?type=gitaar">Gitaren</a></li>
-                <li><a href="/instrumenten?type=Blaasinstrumenten">Blaasinstrumenten</a></li>
-                <li><a href="/instrumenten?type=Violen">Violen</a></li>
-                <li><a href="/instrumenten?type=Versterkers">Versterkers</a></li>
-                <li><a href="/instrumenten?type=Harpen">Harpen</a></li>
-                <li><a href="/instrumenten?type=Drums">Drums</a></li>
-                <li><a href="/instrumenten?type=Overige">Overige</a></li>
+                <li class="{% if type == nil %}active{% endif %}"><a  href="/instrumenten">Alle</a></li>
+                <li class="{% if type == 'gitaar' %}active{% endif %}"><a href="/instrumenten?type=gitaar">Gitaren</a></li>
+                <li class="{% if type == 'Blaasinstrumenten' %}active{% endif %}"><a href="/instrumenten?type=Blaasinstrumenten">Blaasinstrumenten</a></li>
+                <li class="{% if type == 'Violen' %}active{% endif %}"><a href="/instrumenten?type=Violen">Violen</a></li>
+                <li class="{% if type == 'Versterkers' %}active{% endif %}"><a href="/instrumenten?type=Versterkers">Versterkers</a></li>
+                <li class="{% if type == 'Harpen' %}active{% endif %}"><a href="/instrumenten?type=Harpen">Harpen</a></li>
+                <li class="{% if type == 'Drums' %}active{% endif %}"><a href="/instrumenten?type=Drums">Drums</a></li>
+                <li class="{% if type == 'Overige' %}active{% endif %}"><a href="/instrumenten?type=Overige">Overige</a></li>
             </ul>
         </nav>
 

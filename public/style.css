@@ -200,10 +200,10 @@ header{
                 &::after {
                     content: "";
                     position: absolute;
-                    bottom: 0;
+                    bottom: -2px;
                     left: 0;
                     right: 0;
-                    height: 4px;
+                    height: 6px;
                     background-color: var(--color-primary);
                     border-radius: 1rem;
                     z-index: 1;
@@ -212,7 +212,7 @@ header{
 
             a{
                 text-decoration: none;
-                padding: 0 3em;
+                padding: 0 2em;
                 font-size: 1.2rem;
             }
         }
