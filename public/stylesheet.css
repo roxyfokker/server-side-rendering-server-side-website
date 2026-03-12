@@ -265,3 +265,11 @@ button{
     filter: brightness(0) invert(1);
   }
 }
+.button--back{
+  &::before{
+    background-image: url(/icons/back.svg);
+  }
+  &:hover::before{
+    filter: brightness(0) invert(1);
+  }
+}

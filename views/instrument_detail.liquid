@@ -1,1 +1,49 @@
 {%  render 'partials/head.liquid', title: "Instrument details" %}
+
+<section class="detail-hero">
+    <a href="/instrumenten" class="button button-primary button--back">Terug naar overzicht</a>
+    <img src="{{ instrument.photo }}" alt="{{ instrument.name }}">
+    <h2>{{ instrument.name }}</h2>
+    <p>{{ instrument.serial_number }} * {{ instrument.status }}</p>
+    <p>
+        {% if instrument.status == "Uitgeleend" %}
+            Uitgeleend tot: {{ instrument.rented_until }} door: {{ instrument.rented_from }}
+        {% elsif instrument.status == "In reparatie" %}
+            In reparatie tot: {{ instrument.rented_until }}
+        {% endif %}
+    </p>
+</section>
+
+<section class="info-if-found">
+    <p> Dit instrument is eigendom van Preludefonds. Heb je vragen over dit instrument? Heb je dit instrument gevonden? Neem contact op met Preludefonds.</p>
+    <a href="#contact">Ga naar contactgegevens</a>
+</section>
+
+<section class="action-section">
+    <h3>Wat wil je doen?</h3>
+    <hr>
+    {% if isntrument.status == "Uitgeleend" %}
+        <button class="button-primary button--">Innemen</button>
+    {% elsif instrument.status == "Beschikbaar" %}
+        <button class="button-primary button--">Uitlenen</button>
+    {% endif %}
+    <button class="button-primary button--">Scahde melden</button>
+</section>
+
+<section>
+    <h3>Over dit instrument</h3>
+    <hr>
+    <ul>
+        <li>{{ insturment.type }}</li>
+        <li>{{ insturment.brand }}</li>
+        <li>{{ insturment.property }}</li>
+        <li>{{ insturment.type }}</li>
+    </ul>
+</section>
+
+<section>
+    <h3>Geschiedenis</h3>
+    <hr>
+    hier komen alle acties die aan dit instrument zijn gekoppeld
+</section>
+
