@@ -40,7 +40,7 @@
                 <tr>
                     <th scope="col">
                         <button>
-                            Naam isntrument
+                            Naam instrument
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" id="Arrows-Sort--Streamline-Tabler" height="24" width="24">
                                 <path d="m3 9 4 -4 4 4M7 5v14" stroke-width="2"></path>
                                 <path d="m21 15 -4 4 -4 -4m4 4V5" stroke-width="2"></path>
@@ -88,7 +88,7 @@
                     <td>{{ instrument.serial_number | default: "Onbekend" }}</td>
                     <td>{{ instrument.type | default: "Onbekend" }}</td>
                     <td>{{ instrument.brand | default: "Onbekend" }}</td>
-                    <td>{{ isntrument.property | default: "Onbekend" }}</td>
+                    <td>{{ instrument.property | default: "Onbekend" }}</td>
                     <td>
                         {% include 'partials/status_label.liquid', status: instrument.status %}
                     </td>

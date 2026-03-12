@@ -3,7 +3,10 @@
 <main class="detail-main">
     <section class="detail-hero">
         <a href="/instrumenten" class="button button-primary button--back">Terug naar overzicht</a>
-        <img src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}" alt="{{ instrument.name }}">
+        <figure>
+            <img src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}" alt="{{ instrument.name }}">
+        </figure>
+        
         <h2>{{ instrument.name }}</h2>
         <p>{{ instrument.serial_number }} * {{ instrument.status }}</p>
         <p>
@@ -13,6 +16,7 @@
                 In reparatie tot: {{ instrument.rented_until }}
             {% endif %}
         </p>
+        <p>Dit instrument hoort thuis in: {{ instrument.location }}</p>
     </section>
 
     <section class="info-if-found">

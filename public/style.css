@@ -164,7 +164,7 @@ header{
         }
     }
 }
-/* ------------ instrument_add pagina----------------------*/
+/* ------------ instrument toevoegen popup-----------------*/
 /* ------------ Instrument_overview pagina-----------------*/
 .instrument-overview-main{
     width: 90vw;
@@ -391,3 +391,21 @@ header{
 }
 
 /* ------------ Instrument_detail pagina-------------------*/
+.detail-main{
+    width: 90vw;
+    margin: auto;
+    h2{
+        color: var(--color-primary);
+    }
+}
+
+.detail-hero{
+    figure{
+        width: 1rem;
+        height: 1rem;
+        overflow: hidden;
+    }
+}
+/* ------------ uitlenen popup-----------------------------*/
+/* ------------ Innemen popup-----------------------------*/
+/* ------------ scahde melden popup-----------------------------*/
