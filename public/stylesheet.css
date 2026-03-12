@@ -212,6 +212,9 @@ button{
     background-position: center;
     background-size: contain;
   }
+  &:hover{
+    cursor: pointer;
+  }
 }
 .button-primary{
   background-color: var(--color-primary);
